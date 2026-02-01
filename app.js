@@ -8,6 +8,7 @@ const colorOptions = Array.from(document.getElementsByClassName("color-option"))
 const modeBtn = document.getElementById("mode-btn");
 const resetBtn = document.getElementById("reset-btn");
 const eraserBtn = document.getElementById("eraser-btn");
+const saveBtn = document.getElementById("save");
 
 const fileInput = document.getElementById("file");
 const textInput = document.getElementById("text");
@@ -116,6 +117,14 @@ function onDoubleClick(event) {
     }
 }
 
+function onSaveClick() {
+    const url = canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDownload.png";
+    a.click();
+}
+
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting)
 canvas.addEventListener("mouseup", cancelPainting);
@@ -134,5 +143,7 @@ modeBtn.addEventListener("click", onModeClick);
 resetBtn.addEventListener("click", onResetClick);
 
 eraserBtn.addEventListener("click", onEraserClick);
+
+saveBtn.addEventListener("click", onSaveClick);
 
 fileInput.addEventListener("change", onFileChange);
