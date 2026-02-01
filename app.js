@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas"); // 도화지
 const ctx = canvas.getContext("2d"); // 붓
 const lineWidth = document.getElementById("line-width");
+const color = document.getElementById("line-color");
 
 canvas.width = 800;
 canvas.height = 800;
@@ -31,9 +32,17 @@ function onLineWidthChange(event) {
     ctx.lineWidth = event.target.value;
 }
 
+function onLineColorChange(event) {
+    ctx.beginPath();
+    ctx.strokeStyle = event.target.value;
+    ctx.fillStyle = event.target.value;
+}
+
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting)
 canvas.addEventListener("mouseup", cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
 
 lineWidth.addEventListener("change", onLineWidthChange);
+
+color.addEventListener("change", onLineColorChange);
