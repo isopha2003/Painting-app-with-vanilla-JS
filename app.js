@@ -2,6 +2,7 @@ const canvas = document.querySelector("canvas"); // 도화지
 const ctx = canvas.getContext("2d"); // 붓
 const lineWidth = document.getElementById("line-width");
 const color = document.getElementById("line-color");
+const colorOptions = Array.from(document.getElementsByClassName("color-option"));
 
 canvas.width = 800;
 canvas.height = 800;
@@ -32,10 +33,21 @@ function onLineWidthChange(event) {
     ctx.lineWidth = event.target.value;
 }
 
-function onLineColorChange(event) {
+function changeColor(colorValue) {
     ctx.beginPath();
-    ctx.strokeStyle = event.target.value;
-    ctx.fillStyle = event.target.value;
+    ctx.strokeStyle = colorValue;
+    ctx.fillStyle = colorValue;
+    color.value = colorValue;
+}
+
+function onLineColorChange(event) {
+    const colorValue = event.target.value;
+    changeColor(colorValue);
+}
+
+function onColorClick(event) {
+    const colorValue = event.target.dataset.color;
+    changeColor(colorValue);
 }
 
 canvas.addEventListener("mousemove", onMove);
@@ -46,3 +58,5 @@ canvas.addEventListener("mouseleave", cancelPainting);
 lineWidth.addEventListener("change", onLineWidthChange);
 
 color.addEventListener("change", onLineColorChange);
+
+colorOptions.forEach(color => color.addEventListener("click", onColorClick));
