@@ -6,10 +6,8 @@
     <title>Meme Maker</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <canvas></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="0.5" />
-    <div>
+<body>    
+    <div class="color-options">
         <input id="line-color" type="color" />
         <div class="color-option" style="background-color: #1abc9c;" data-color="#1abc9c"></div>
         <div class="color-option" style="background-color: #3498db;" data-color="#3498db"></div>
@@ -20,16 +18,22 @@
         <div class="color-option" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
         <div class="color-option" style="background-color: #95a5a6;" data-color="#95a5a6"></div>
         <div class="color-option" style="background-color: #d35400;" data-color="#d35400"></div>
-        <div class="color-option" style="background-color: #bdc3c7;" data-color="#bdc3c7"></div>
         <div class="color-option" style="background-color: #2ecc71;" data-color="#2ecc71"></div>
         <div class="color-option" style="background-color: #e67e22;" data-color="#e67e22"></div>
     </div>
-    <button id="mode-btn">Fill</button>
-    <button id="reset-btn">Reset</button>
-    <button id="eraser-btn">Eraser</button>
-    <input id="file" type="file" accept="image/*" />
-    <input id="text" type="text" placeholder="Write and then double click" />
-    <button id="save">Save Image</button>
-    <script src="app.js"></script>
+    <canvas></canvas>
+    <div class="btns">
+        <input id="line-width" type="range" min="1" max="10" value="5" step="0.5" />
+        <button id="mode-btn">Fill</button>
+        <button id="reset-btn">Reset</button>
+        <button id="eraser-btn">Eraser</button>
+        <label for="file">
+            Add Photo
+            <input id="file" type="file" accept="image/*" />
+        </label>
+        <input id="text" type="text" placeholder="Add Text" />
+        <button id="save">Save Image</button>
+    </div>
+        <script src="app.js"></script>
 </body>
 </html>
