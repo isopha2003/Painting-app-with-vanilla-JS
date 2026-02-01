@@ -26,7 +26,14 @@ function cancelPainting() {
     isPainting = false;
 }
 
+function onLineWidthChange(event) {
+    ctx.beginPath();
+    ctx.lineWidth = event.target.value;
+}
+
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting)
 canvas.addEventListener("mouseup", cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
+
+lineWidth.addEventListener("change", onLineWidthChange);
